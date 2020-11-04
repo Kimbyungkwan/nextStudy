@@ -62,18 +62,21 @@ yarn add react react-dom next
 - useRouter
 
   - ```js
-       import {useRouter} from 'next/router'
+    import { useRouter } from "next/router";
 
-       ex)
-       URL : .../profile?name='jake'
-           ...
-       -> const router = useRouter();
-           ...
-       -> return(
-           <>
-               <div>{props.query.name}</div>   //<div>jake</div>
-           </>
-       )
+    // ex)
+    // URL : .../profile?name='jake'
+    // ...
+    const router = useRouter();
+    // ...
+    const Index = () => (
+      <div>
+        <div>{props.query.name}</div>
+      </div>
+      //<div>
+      //  <div>jake</div>
+      //</div>
+    );
     ```
 
 - 깔끔한 URL
@@ -88,7 +91,7 @@ yarn add react react-dom next
 
       const ProfileLink = props => (
         <div>
-          //href는 실제이동할 경로 , // as는 URL에 보여줄 경로
+          //href는 실제이동할 경로 // as는 URL에 보여줄 경로
           <Link href={`/p/[name]`} as={`/p/${props.profile}`}>
             <a>Go to {props.profile}'s profile</a>
           </Link>
@@ -158,7 +161,7 @@ yarn add react react-dom next
         "https://next.json-generator.com/api/json/get/V1UenWj_F");
     const data = await res.json();
     return {
-        profiles: data.map(profile => profile.name),
+        profiles: data.map(profile => profile.name), //
     };
   }
   ```
